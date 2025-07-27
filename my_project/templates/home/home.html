@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 
+
 {% block content %}
+
     <h1>Add nav bar</h1>
+    {% for item in nav_content %}
+        <h2>{{item.name}}</h2>
+    {% endfor %}
+
+    
     <form action="{% url 'home_page' %}" method="post">
+        {% csrf_token %}
         <input type="text" name="name">
         <input type="text" name="url">
         <button type="submit">Add nav</button>
